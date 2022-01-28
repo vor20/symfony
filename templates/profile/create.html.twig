@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+
+{#        {{ form_widget(form.save, {attr:{class:'btn'}})}}#}
+
+    <form action="{{ path('create') }}" method="post" enctype="multipart/form-data">
+            {{ form_start(form) }}
+{#        <div class="custom-file">#}
+{#            <input type="hidden" name="MAX_FILE_SIZE" value="300000000" />#}
+            {{ form_errors(form) }}
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title) }}
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+        <div class="mb-3">
+            <label for="item_collection_image" class="form-label required">Image</label>
+            <input type="file" id="file" name="file" required="required" class="form-control">
+{#            <input type="submit" name="btnenviar" id="btnenviar"/>#}
+        </div>
+        {{ form_end(form) }}
+{#            <input type="file" name="file" id="file" {{ form_row(form.image) }}/>#}
+{#            <button {{ form_row(form.save)}}</button>#}
+{#            <input type="submit" name="btnenviar" id="btnenviar"/>#}
+    </form>
+
+
+{#    {{ data }}#}
+{#    <p><img src="images/{{ image }}" alt="Письма мастера дзен"></p>#}
+{#    {{ collection.name}}#}
+{#    <button class="w-100 btn btn-lg btn-primary" type="submit">Create</button>#}
+{% endblock %}
